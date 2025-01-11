@@ -3,6 +3,7 @@ import { Posts } from "./pages/posts";
 import { Root } from "./components/Root";
 import { Main } from "./pages/main";
 import { Blog } from "./pages/blog";
+import { Feedback } from "./pages/feedback";
 
 function App() {
   const router = createBrowserRouter([
@@ -21,6 +22,10 @@ function App() {
         {
           path: "blog",
           element: <Blog />
+        },
+        {
+          path: "feedback",
+          element: <Feedback /> 
         }
       ],
     },
