@@ -1,7 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
-export const Blog = () => {
+export const BlogItem = () => {
+    const { pictureId } = useParams();
 
     const pictures = [
         {
@@ -21,13 +22,12 @@ export const Blog = () => {
         },
     ];
 
-    return <div>
-        Это страница блога
-        {pictures.map((picture) => <div key={picture.id}>
-            <Link to={`/blog/${picture.id}`}>
-                {picture.title}
-            </Link>
-        </div>)}
-    </div>
+    const picture = pictures.find(picture => picture.id === parseInt(pictureId));
 
-}
+    return (
+        <div>
+            <h1>{picture.title}</h1>
+            <img src={picture.imageUrl} alt={picture.title} style={{ MaxWidth: '400px', height: '300px'}} />
+        </div>
+    );
+};

@@ -1,8 +1,8 @@
 import React from "react";
 import { NavLink, Outlet } from "react-router-dom";
-import styles from "./style.css"
+import styles from "./style.module.css"
 
-<NavLink
+/* <NavLink
     className={({ isActive }) => {
         return isActive ? styles.active : "";
     }}
@@ -18,34 +18,40 @@ export const Root = () => <>
     <br />
     <br />
     <Outlet />
-</>
+</> */
 
 
-// export const Root = () => (
-//   <>
-//     <NavLink
-//       to='/'
-//       className={({ isActive }) => (isActive ? styles.active : "")}
-//     >
-//       Главная
-//     </NavLink>
-//     <NavLink
-//       to='posts'
-//       className={({ isActive }) => (isActive ?  styles.active : "")}
-//     >
-//       Посты
-//     </NavLink>
-//     <NavLink
-//       to='blog'
-//       className={({ isActive }) => (isActive ? styles.active : "")}
-//     >
-//       Блог
-//     </NavLink>
-//     <br />
-//     <br />
-//     <br />
-//     <br />
-//     <Outlet />
-//   </>
-// );
+export const Root = () => (
+    <>
+        <NavLink
+            to='/'
+            className={({ isActive }) => (isActive ? styles.active : "")}
+        >
+            Главная
+        </NavLink>
+        <NavLink
+            to='posts'
+            className={({ isActive }) => (isActive ? styles.active : "")}
+        >
+            Посты
+        </NavLink>
+        <NavLink
+            to='blog'
+            className={({ isActive }) => (isActive ? styles.active : "")}
+        >
+            Блог
+        </NavLink>
+        <NavLink
+            to='feedback' 
+            className={({ isActive }) => (isActive ? styles.active : "")}
+        >
+            Обратная связь
+        </NavLink>
+        <br />
+        <br />
+        <br />
+        <br />
+        <Outlet />
+    </>
+);
 

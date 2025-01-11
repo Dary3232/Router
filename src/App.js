@@ -4,6 +4,9 @@ import { Root } from "./components/Root";
 import { Main } from "./pages/main";
 import { Blog } from "./pages/blog";
 import { Feedback } from "./pages/feedback";
+import { Post } from "./pages/posts/components/Post";
+import './App.css'
+import { BlogItem } from "./pages/blog/components/blogItem";
 
 function App() {
   const router = createBrowserRouter([
@@ -20,8 +23,16 @@ function App() {
           element: <Posts />,
         },
         {
+          path: 'posts/:postId',
+          element: <Post />
+        },
+        {
           path: "blog",
           element: <Blog />
+        },
+        {
+          path:"blog/:pictureId",
+          element: <BlogItem />
         },
         {
           path: "feedback",
