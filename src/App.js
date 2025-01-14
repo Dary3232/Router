@@ -5,14 +5,20 @@ import { Main } from "./pages/main";
 import { Blog } from "./pages/blog";
 import { Feedback } from "./pages/feedback";
 import { Post } from "./pages/posts/components/Post";
-import './App.css'
 import { BlogItem } from "./pages/blog/components/blogItem";
+import { Error } from "./pages/error";
+import { AuthProvider } from "./context/AuthContext";
+import { Login } from "./pages/login";
+import { Protected } from "./pages/protected";
+import "./App.css";
+import { CheckAuth } from "./components/CheckAuth";
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
       element: <Root />,
+      errorElement: <Error />,
       children: [
         {
           index: true,
@@ -23,28 +29,40 @@ function App() {
           element: <Posts />,
         },
         {
-          path: 'posts/:postId',
-          element: <Post />
+          path: "posts/:postId",
+          element: <Post />,
         },
         {
           path: "blog",
-          element: <Blog />
+          element: <Blog />,
         },
         {
-          path:"blog/:pictureId",
-          element: <BlogItem />
+          path: "blog/:pictureId",
+          element: <BlogItem />,
         },
         {
           path: "feedback",
-          element: <Feedback /> 
+          element: <Feedback />,
+        },
+        {
+          path:'/protected',
+          element: <CheckAuth>
+            <Protected />
+          </CheckAuth> 
         }
       ],
     },
+    {
+      path:"/login",
+      element: <Login />
+    }
   ]);
   return (
-    <div className="App">
-      <RouterProvider router={router} />
-    </div>
+    <AuthProvider>
+      <div className="App">
+        <RouterProvider router={router} />
+      </div>
+    </AuthProvider>
   );
 }
 
