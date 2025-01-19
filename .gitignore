@@ -43,3 +43,4 @@ vendor/
 # Ошибки и служебные файлы системы
 *.swp
 *.swo
+*storybook.log
