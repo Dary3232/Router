@@ -1,6 +1,6 @@
 import { fn } from "@storybook/test";
 
-import { Button } from "./Button";
+import { Button } from "../Button/Button";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 export default {
@@ -34,19 +34,19 @@ Primary.args = {
 export const Secondary = Template.bind({});
 Secondary.args = {
   label: "Button",
-  // title: "Кнопка -"
+  title: "Кнопка -"
 };
 
 export const Large = Template.bind({});
 Large.args = {
   size: "large", 
   label: "Button",
-  // title: "Кнопка -"
+  title: "Кнопка -"
 };
 
 export const Small = Template.bind({});
 Small.args = {
   size: "small",
   label: "Button",
-  // title: "Кнопка -"
+  title: "Кнопка -"
 };
